@@ -39,10 +39,10 @@ public class Notenspiegel
             double lastValue = mNotenGrenzen.Count > 0 ? mNotenGrenzen[i-1] : maxPunkte;
             double notenGrenze = lastValue - notenSpanne;
 
-            if (notenGrenze % 0.5 > 0)
-            {
-                notenGrenze += 0.25;
-            }
+            // if (notenGrenze % 0.5 > 0)
+            // {
+            //     notenGrenze += 0.25;
+            // }
 
             mNotenGrenzen.Add(notenGrenze);
         }
@@ -58,7 +58,7 @@ public class Notenspiegel
         for (int i = 0; i < mNotenGrenzen.Count; i++)
         {
             int note = i + 1;
-            double highValue = i > 0 ? mNotenGrenzen[i-1] - 0.5 : mMaxPunkte;
+            double highValue = i > 0 ? mNotenGrenzen[i-1] : mMaxPunkte;
             double lowValue = i == mNotenGrenzen.Count - 1 ? 0 : mNotenGrenzen[i];
 
             System.Console.WriteLine($" {highValue,5:F2} - {lowValue,5:F2}  |   {note}");
